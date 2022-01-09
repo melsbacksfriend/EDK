@@ -1,11 +1,11 @@
 # Encyclopedia Dramatica Killer
-###takes down the site made by heathenous surface dwellers once and for all!  
+### takes down the site made by heathenous surface dwellers once and for all!  
 
 
 I'm a JS beginner btw.  
 
-#How to make this a DDoS?
-###Easy, just have a couple of people attacking, OR Just open up new tabs in your browser, and start attacking!
+# How to make this a DDoS?
+### Easy, just have a couple of people attacking, OR Just open up new tabs in your browser, and start attacking!
 
 # NOTES:
 

@@ -9,4 +9,4 @@ I'm a JS beginner btw.
 
 # NOTES:
 
-##No matter what is entered into the forms, it'll attack Encyclopedia Dramatica as that site is evil.  
+## No matter what is entered into the forms, it'll attack Encyclopedia Dramatica as that site is evil.  
